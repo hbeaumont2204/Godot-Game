@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cur0cv3yr4jqs"]
+[gd_scene load_steps=5 format=3 uid="uid://cur0cv3yr4jqs"]
 
 [ext_resource type="Texture2D" uid="uid://0itjlue1smii" path="res://assets/tiles/single-dungeon-crawler/PNG/dungeon-tileset.png" id="1_sxr8l"]
+[ext_resource type="PackedScene" uid="uid://sanycn06uvg1" path="res://scenes/players/player.tscn" id="2_bw3rj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bw3rj"]
 texture = ExtResource("1_sxr8l")
@@ -68,3 +69,10 @@ sources/1 = SubResource("TileSetAtlasSource_bw3rj")
 tile_set = SubResource("TileSet_osc7o")
 format = 2
 layer_0/tile_data = PackedInt32Array(131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 65543, 1, 0, 65544, 1, 0, 9, 1, 0, 65545, 1, 0, -65527, 1, 0, -131063, 1, 0, -196599, 1, 0, -262135, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196607, 1, 0, 196606, 1, 0, 196605, 1, 0, 196604, 1, 0, 131068, 1, 0, 65532, 1, 0, -4, 1, 0, -65540, 1, 0, -131076, 1, 0, -196612, 1, 0, -196611, 1, 0, -196610, 1, 0, -196609, 1, 0, -262144, 1, 0, -262143, 1, 0, -262142, 1, 0, -262141, 1, 0, -262140, 1, 0, -262139, 1, 0, -262138, 1, 0, -262137, 1, 0, -262136, 1, 0, 65542, 1, 0, 65541, 1, 0, 65540, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, -65529, 1, 0, -65528, 1, 0, 5, 1, 0, -65530, 1, 0, -131065, 1, 0, -196600, 1, 0, -131064, 1, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(13, -1)
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("2_bw3rj")]
+position = Vector2(13, 5)
