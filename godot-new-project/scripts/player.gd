@@ -9,8 +9,16 @@ var life_force = 180
 
 var time = 0.0 # Time taken by the player
 
+func _ready() -> void:
+	add_to_group("player")
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	print(life_force) # TEST
+	life_force_drain(delta)
+
 func restore_life_force() -> void:
-	life_force = life_force_max
+	life_force = life_force_max # Resets to full
 
 func life_force_drain(delta: float) -> void:
 	life_force = life_force - delta
