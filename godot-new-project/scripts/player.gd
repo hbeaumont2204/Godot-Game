@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
@@ -9,12 +8,14 @@ var life_force = 180
 
 var time = 0.0 # Time taken by the player
 
+@onready var player_sprite = $AnimatedSprite2D
+
 func _ready() -> void:
 	add_to_group("player")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(life_force) # TEST
+	#print(life_force) # TEST
 	life_force_drain(delta)
 
 func restore_life_force() -> void:
@@ -25,7 +26,6 @@ func life_force_drain(delta: float) -> void:
 	#if life_force <= 0:
 		# Game over
 	
-
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -38,9 +38,13 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
+	
 	if direction:
+		player_sprite.flip_h = velocity.x < 0
+		#print(direction)
 		velocity.x = direction * SPEED
 	else:
+		#print(direction)
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
