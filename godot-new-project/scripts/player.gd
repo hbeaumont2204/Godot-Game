@@ -3,8 +3,8 @@ extends CharacterBody2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
-const life_force_max = 180
-var life_force = 10 # Change for testing, default is 60
+const life_force_max = 60
+var life_force = 60 # Change for testing, default is 60
 var is_dead = false
 
 var time = 0.0 # Time taken by the player
@@ -19,8 +19,6 @@ func _process(delta: float) -> void:
 	#print(life_force) # TEST
 	life_force_drain(delta)
 	
-	
-
 func restore_life_force() -> void:
 	life_force = life_force_max # Resets to full
 
