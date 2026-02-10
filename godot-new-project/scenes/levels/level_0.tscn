@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cur0cv3yr4jqs"]
+[gd_scene load_steps=7 format=3 uid="uid://cur0cv3yr4jqs"]
 
 [ext_resource type="Texture2D" uid="uid://crsrnlhux3wy3" path="res://assets/tiles/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="1_bw3rj"]
 [ext_resource type="PackedScene" uid="uid://sanycn06uvg1" path="res://scenes/players/player.tscn" id="2_bw3rj"]
 [ext_resource type="PackedScene" uid="uid://qgofllbuqmb6" path="res://scenes/Game Items/apple.tscn" id="3_osc7o"]
+[ext_resource type="PackedScene" uid="uid://bn04mxu4rffiv" path="res://scenes/enemies/slime.tscn" id="4_wjk5u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osc7o"]
 texture = ExtResource("1_bw3rj")
@@ -54,3 +55,6 @@ position = Vector2(406, -25)
 
 [node name="Apple" parent="." instance=ExtResource("3_osc7o")]
 position = Vector2(-42, 23)
+
+[node name="Slime" parent="." instance=ExtResource("4_wjk5u")]
+position = Vector2(119, 22)
