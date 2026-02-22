@@ -12,8 +12,11 @@ var gold = 0 # Gold collected
 
 @onready var player_sprite = $AnimatedSprite2D
 @onready var GameOverScreen = get_parent().get_node("GameOverScreen")
+@onready var heartbeat = get_parent().get_node("HeartbeatPlayer")
 
 func _ready() -> void:
+	heartbeat.volume_db = 0
+	heartbeat.pitch_scale = 2 # TEST
 	add_to_group("player")
 	GameOverScreen.hide()
 
@@ -21,7 +24,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#print(life_force) # TEST
 	life_force_drain(delta)
-	
+	if not heartbeat.playing and not is_dead:
+		heartbeat.play()
+		print("Heartbeat played")
 '''
 Functions modifying life force
 '''
@@ -41,6 +46,7 @@ func check_game_over() -> void:
 		# Game over
 		is_dead = true
 	if is_dead:
+		heartbeat.stop()
 		GameOverScreen.show()
 		get_tree().paused = true
 

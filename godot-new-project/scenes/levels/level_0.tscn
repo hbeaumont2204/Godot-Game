@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://b8jrjy83alwka" path="res://scripts/restart_button.gd" id="5_jjvta"]
 [ext_resource type="PackedScene" uid="uid://cygadcw88kjbi" path="res://scenes/Game Items/gold_bar.tscn" id="5_xy1qu"]
 [ext_resource type="Script" uid="uid://e6ro1s6glvgr" path="res://scripts/exit_button.gd" id="6_3mnpy"]
+[ext_resource type="AudioStream" uid="uid://7vvascx2fenm" path="res://assets/tbsfx-heartbeat-415837.mp3" id="8_6ayib"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_osc7o"]
 texture = ExtResource("1_bw3rj")
@@ -113,3 +114,6 @@ script = ExtResource("6_3mnpy")
 
 [node name="Gold Bar" parent="." unique_id=669234545 instance=ExtResource("5_xy1qu")]
 position = Vector2(58, 22)
+
+[node name="HeartbeatPlayer" type="AudioStreamPlayer" parent="." unique_id=528991461]
+stream = ExtResource("8_6ayib")
