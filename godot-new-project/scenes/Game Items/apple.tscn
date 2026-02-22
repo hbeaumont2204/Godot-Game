@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://qgofllbuqmb6"]
+[gd_scene format=3 uid="uid://qgofllbuqmb6"]
 
 [ext_resource type="Texture2D" uid="uid://cd6gu0excp8mq" path="res://assets/sprites/Fruits and Vegetables/Fruits/Apple.png" id="1_2l50x"]
 [ext_resource type="Script" uid="uid://ugcv78xf02ur" path="res://scripts/food.gd" id="1_3su4r"]

@@ -1,11 +1,10 @@
 extends Area2D
 
-@onready var timer = $Timer
+#@onready var timer = $Timer
+@onready var player = get_parent().get_node("Player")
 
+# Find alternative to on body entered later
 func _on_body_entered(body: Node2D) -> void:
-	print("You died")
-	timer.start()
-
-
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene() # Restarts game
+	if body.is_in_group("player"):
+		body.life_force_damage(20)
+		queue_free()

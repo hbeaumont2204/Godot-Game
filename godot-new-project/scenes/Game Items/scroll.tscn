@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://wmnigcdn82n2"]
+
+[ext_resource type="Script" uid="uid://csdcr71xs4snm" path="res://scripts/gold_bar.gd" id="1_c35ei"]
+[ext_resource type="Texture2D" uid="uid://cyrhekb481jfy" path="res://assets/sprites/Coin/coin_1.png" id="2_8iwor"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3su4r"]
+radius = 7.0
+
+[node name="Scroll" type="Area2D" unique_id=669234545]
+script = ExtResource("1_c35ei")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1833674520]
+texture = ExtResource("2_8iwor")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1101622887]
+visibility_layer = 2
+position = Vector2(-0.5, 1)
+shape = SubResource("CircleShape2D_3su4r")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
