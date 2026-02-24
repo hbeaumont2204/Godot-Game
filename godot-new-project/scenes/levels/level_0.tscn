@@ -54,14 +54,25 @@ position = Vector2(13, 5)
 position = Vector2(17, -6)
 zoom = Vector2(4, 4)
 
+[node name="Marker2D" type="Marker2D" parent="Player" unique_id=1393380703]
+
 [node name="Apple2" parent="." unique_id=1082899115 instance=ExtResource("3_osc7o")]
 position = Vector2(406, -25)
+
+[node name="Apple3" parent="." unique_id=1282096425 instance=ExtResource("3_osc7o")]
+position = Vector2(744, -123)
 
 [node name="Apple" parent="." unique_id=98108292 instance=ExtResource("3_osc7o")]
 position = Vector2(-42, 23)
 
 [node name="Slime" parent="." unique_id=1573773839 instance=ExtResource("4_wjk5u")]
 position = Vector2(119, 22)
+
+[node name="Slime3" parent="." unique_id=72436758 instance=ExtResource("4_wjk5u")]
+position = Vector2(716, -125)
+
+[node name="Slime2" parent="." unique_id=432444589 instance=ExtResource("4_wjk5u")]
+position = Vector2(635, -75)
 
 [node name="GameOverScreen" type="CanvasLayer" parent="." unique_id=1444853339]
 process_mode = 2

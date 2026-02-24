@@ -14,9 +14,11 @@ var gold = 0 # Gold collected
 @onready var GameOverScreen = get_parent().get_node("GameOverScreen")
 @onready var heartbeat = get_parent().get_node("HeartbeatPlayer")
 
+@export var projectile : PackedScene
+
 func _ready() -> void:
-	heartbeat.volume_db = 0
-	heartbeat.pitch_scale = 2 # TEST
+	heartbeat.volume_db = -5
+	#heartbeat.pitch_scale = 1.75 # TEST
 	add_to_group("player")
 	GameOverScreen.hide()
 
@@ -27,6 +29,16 @@ func _process(delta: float) -> void:
 	if not heartbeat.playing and not is_dead:
 		heartbeat.play()
 		print("Heartbeat played")
+	if life_force <= 50 and life_force > 25:
+		heartbeat.pitch_scale = 1.25
+		heartbeat.volume_db = -5
+	elif life_force <= 25:
+		heartbeat.pitch_scale = 1.75
+		heartbeat.volume_db = -3
+	else:
+		heartbeat.pitch_scale = 1
+		heartbeat.volume_db = -5
+		
 '''
 Functions modifying life force
 '''
@@ -60,6 +72,14 @@ func add_gold() -> void:
 func remove_gold() -> void:
 	gold -= 1
 
+'''
+Shooting function
+'''
+func fire_projectile() -> void:
+	var f = projectile.instantiate()
+	owner.add_child(f)
+	f.transform = $Marker2D.global_transform
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -80,5 +100,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		#print(direction)
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		
+	# Shooting
+	if Input.is_action_just_pressed("shoot"):
+		fire_projectile()
 
 	move_and_slide()
