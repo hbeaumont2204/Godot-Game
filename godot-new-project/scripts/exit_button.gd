@@ -6,4 +6,4 @@ func _ready():
 
 func _button_pressed():
 	print("Exited game")
-	# Finish later
+	get_tree().quit() # Exits game

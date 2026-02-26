@@ -2,10 +2,13 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
+var flipped = false
 
 const life_force_max = 60
 var life_force = 10 # Change for testing, default is 60
 var is_dead = false
+
+var scrolls = 3 # Fireball scrolls
 
 var time = 0.0 # Time taken by the player
 var gold = 0 # Gold collected
@@ -76,9 +79,14 @@ func remove_gold() -> void:
 Shooting function
 '''
 func fire_projectile() -> void:
+	scrolls = scrolls - 1 # Decrease scroll count
+	print("Scroll used")
 	var f = projectile.instantiate()
 	owner.add_child(f)
 	f.transform = $Marker2D.global_transform
+	
+func get_flipped() -> bool:
+	return flipped
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -94,8 +102,8 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("ui_left", "ui_right")
 	
 	if direction:
-		player_sprite.flip_h = velocity.x < 0
-		#print(direction)
+		player_sprite.flip_h = velocity.x < 0 # False if facing right, true if left 
+		flipped = velocity.x < 0
 		velocity.x = direction * SPEED
 	else:
 		#print(direction)
@@ -103,6 +111,8 @@ func _physics_process(delta: float) -> void:
 		
 	# Shooting
 	if Input.is_action_just_pressed("shoot"):
-		fire_projectile()
-
+		if scrolls > 0:
+			fire_projectile()
+		else:
+			print("Out of scrolls")
 	move_and_slide()

@@ -1,0 +1,4 @@
+#!/bin/sh
+printf '\033c\033]0;%s\a' Godot New Project
+base_path="$(dirname "$(realpath "$0")")"
+"$base_path/Build_test2.x86_64" "$@"

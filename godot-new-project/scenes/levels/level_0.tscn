@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://crsrnlhux3wy3" path="res://assets/tiles/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Dungeon_Tileset_at.png" id="1_bw3rj"]
 [ext_resource type="PackedScene" uid="uid://sanycn06uvg1" path="res://scenes/players/player.tscn" id="2_bw3rj"]
+[ext_resource type="PackedScene" uid="uid://dxai8uksq3dhv" path="res://scenes/Game Items/projectile.tscn" id="3_65guy"]
 [ext_resource type="PackedScene" uid="uid://qgofllbuqmb6" path="res://scenes/Game Items/apple.tscn" id="3_osc7o"]
 [ext_resource type="PackedScene" uid="uid://bn04mxu4rffiv" path="res://scenes/enemies/slime.tscn" id="4_wjk5u"]
 [ext_resource type="Script" uid="uid://b8jrjy83alwka" path="res://scripts/restart_button.gd" id="5_jjvta"]
@@ -49,12 +50,14 @@ layer_0/tile_data = PackedInt32Array(-131077, 720898, 30, -131076, 720898, 30, -
 
 [node name="Player" parent="." unique_id=1799398549 instance=ExtResource("2_bw3rj")]
 position = Vector2(13, 5)
+projectile = ExtResource("3_65guy")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=419828578]
 position = Vector2(17, -6)
 zoom = Vector2(4, 4)
 
 [node name="Marker2D" type="Marker2D" parent="Player" unique_id=1393380703]
+position = Vector2(1, -11)
 
 [node name="Apple2" parent="." unique_id=1082899115 instance=ExtResource("3_osc7o")]
 position = Vector2(406, -25)
