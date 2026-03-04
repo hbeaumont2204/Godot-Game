@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bn04mxu4rffiv"]
+[gd_scene format=3 uid="uid://bn04mxu4rffiv"]
 
 [ext_resource type="Texture2D" uid="uid://c1hddnkvwayap" path="res://assets/sprites/brackeys_platformer_assets/brackeys_platformer_assets/sprites/slime_green.png" id="1_ahq63"]
 [ext_resource type="PackedScene" uid="uid://c0x0jc4fptcgh" path="res://scenes/killzone.tscn" id="2_4h4y0"]
@@ -40,18 +40,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahq63"]
-size = Vector2(8, 11)
+size = Vector2(15, 14)
 
-[node name="Slime" type="Node2D"]
+[node name="Slime" type="CharacterBody2D" unique_id=2005896627]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1265331024]
 sprite_frames = SubResource("SpriteFrames_uhx0m")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.0523969
 
-[node name="Killzone" parent="." instance=ExtResource("2_4h4y0")]
+[node name="Killzone" parent="." unique_id=454132097 instance=ExtResource("2_4h4y0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(0, 5.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1229047831]
+position = Vector2(0.5, 4)
 shape = SubResource("RectangleShape2D_ahq63")

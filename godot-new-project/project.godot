@@ -19,6 +19,10 @@ run/main_scene="uid://cur0cv3yr4jqs"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[global_group]
+
+Enemies=""
+
 [input]
 
 ui_left={
